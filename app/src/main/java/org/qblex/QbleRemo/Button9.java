@@ -1,4 +1,4 @@
-package org.qblex.myapplication;
+package org.qblex.QbleRemo;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

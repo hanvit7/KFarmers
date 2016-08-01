@@ -1,4 +1,4 @@
-package org.qblex.myapplication;
+package org.qblex.QbleRemo;
 
 import org.junit.Test;
 

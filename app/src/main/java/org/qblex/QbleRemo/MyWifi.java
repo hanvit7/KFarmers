@@ -1,4 +1,4 @@
-package org.qblex.myapplication;
+package org.qblex.QbleRemo;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
