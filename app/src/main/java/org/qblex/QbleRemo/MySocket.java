@@ -55,7 +55,7 @@ public class MySocket extends Thread {
         try {
             InetSocketAddress socketAddress = new InetSocketAddress(InetAddress.getByName(addr), port);
             mSocket = new Socket();
-             mSocket.connect(socketAddress, port);
+            mSocket.connect(socketAddress, port);
         } catch (IOException e) {
             System.out.println(e);
             e.printStackTrace();
