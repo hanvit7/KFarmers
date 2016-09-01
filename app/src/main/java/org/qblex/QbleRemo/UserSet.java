@@ -30,9 +30,9 @@ public class UserSet {
         setFilmNum(0);
         setWifiSel(0);
         ArrayList<String> arrayList = new ArrayList<String>();
-        arrayList.add(0, "QbleSmartFilm" + "," + "Qwer1234" + "," + "192.168.1.1");
-        arrayList.add(1, "QbleSmartFilm" + "," + "Qwer1234" + "," + "192.168.11.11");
-        arrayList.add(2, "QbleSmartFilm" + "," + "Qwer1234" + "," + "192.168.111.111");
+        arrayList.add(0, "QbleSmartFilm" + "," + "Qwer1234" + "," + "192.168.11.11");
+        arrayList.add(1, "QbleSmartFilm" + "," + "Qwer1234" + "," + "192.168.22.22");
+        arrayList.add(2, "QbleSmartFilm" + "," + "Qwer1234" + "," + "192.168.33.33");
         setWifiList("wifi", arrayList);
     }
 

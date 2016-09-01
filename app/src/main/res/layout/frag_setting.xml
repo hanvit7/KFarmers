@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp">
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:gravity="center_vertical"
                 android:text="Smart Flim Address"
                 android:textColor="#ff000000"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <EditText
                 android:id="@+id/editFilmAddr"
@@ -36,7 +36,7 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -54,7 +54,7 @@
                 android:layout_marginRight="3dp"
                 android:layout_weight="1"
                 android:text="connect"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <Button
                 android:id="@+id/btnDisconnect"
@@ -63,7 +63,7 @@
                 android:layout_marginLeft="3dp"
                 android:layout_weight="1"
                 android:text="Disconnect"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -81,7 +81,7 @@
                 android:gravity="center_vertical"
                 android:text="Access Mode"
                 android:textColor="#ff000000"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <TextView
                 android:id="@+id/wifistatus2"
@@ -90,7 +90,7 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
         </LinearLayout>
 
@@ -109,7 +109,7 @@
                 android:gravity="center_vertical"
                 android:text="Wi-Fi SSID"
                 android:textColor="#ff000000"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <TextView
                 android:id="@+id/wifissid2"
@@ -118,7 +118,7 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -136,7 +136,7 @@
                 android:gravity="center_vertical"
                 android:text="Wi-Fi IP"
                 android:textColor="#ff000000"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <TextView
                 android:id="@+id/wifiip2"
@@ -145,7 +145,7 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
         </LinearLayout>
 
         <!--<LinearLayout-->
@@ -191,7 +191,7 @@
                 android:layout_toLeftOf="@+id/btnWifiConnect"
                 android:layout_toStartOf="@+id/btnWifiConnect"
                 android:spinnerMode="dialog"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccent"/>
 
 
             <EditText
@@ -206,7 +206,7 @@
                 android:layout_toStartOf="@+id/btnWifiConnect"
                 android:hint="Password"
                 android:textColor="@color/colorAccent"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <Button
                 android:id="@+id/btnWifiConnect"
@@ -229,7 +229,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/spinnerWifi"
                 android:text="Scan"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
         </RelativeLayout>
 
@@ -250,7 +250,7 @@
                 android:gravity="center_vertical"
                 android:text="Film Count"
                 android:textColor="#ff000000"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
             <Spinner
                 android:id="@+id/spinnerFilmCnt"
@@ -260,7 +260,7 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:spinnerMode="dropdown"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccent"/>
 
             <Button
                 android:id="@+id/btnDefault"
@@ -268,7 +268,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
                 android:text="Default"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -287,7 +287,7 @@
                 android:checked="false"
                 android:text="Auto Connect"
                 android:textColor="#ff000000"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
 
         </LinearLayout>
 
@@ -305,14 +305,15 @@
                 android:layout_height="wrap_content"
                 android:text="Receive message"
                 android:textColor="@color/colorAccent"
-                android:textSize="14dp" />
+                android:textSize="14dp"/>
         </ScrollView>
 
         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/listView"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
 

@@ -54,7 +54,8 @@ public class FragSetting extends Fragment implements Button.OnClickListener {
 
     ArrayList<String> filmArrayList = null;
     ArrayAdapter<String> filmAdapter = null;
-    String[] filmArrayVal = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+//    String[] filmArrayVal = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+    String[] filmArrayVal = {"1", "2", "3", "4"};
 
     ArrayList<String> wifiArrayList = null;
     ArrayAdapter<String> WifiAdapter = null;
@@ -107,7 +108,9 @@ public class FragSetting extends Fragment implements Button.OnClickListener {
 //        btnSendMsg.setOnClickListener(this);
 
         scrollView = (ScrollView) root.findViewById(R.id.scrollView);
+        scrollView.setVisibility(View.GONE);
         ViewRecv = (TextView) root.findViewById(R.id.ViewRecv);
+        ViewRecv.setVisibility(View.GONE);
         wifiStatus2 = (TextView) root.findViewById(R.id.wifistatus2);
         wifissid2 = (TextView) root.findViewById(R.id.wifissid2);
         wifiIp2 = (TextView) root.findViewById(R.id.wifiip2);

@@ -115,7 +115,10 @@ public class MyWifi extends Thread {
                     case CHECK_FILM_INFO:
                         progressListner.progressDialog(wifistate, "Check Connect with Film WiFi");
                         Log.d(TAG, "connected wifi ssid : " + String.valueOf(wifi.getExtraInfo()));
-                        if (wifi.getExtraInfo().contains(ssid_)) {
+                        Log.d(TAG, "getConnectionInfo : " + String.valueOf(wifiManager.getConnectionInfo()));
+                        Log.d(TAG, "getConnectionInfo.ssid : " + String.valueOf(wifiManager.getConnectionInfo().getSSID()));
+//                        if (wifi.getExtraInfo().contains(ssid_)) {
+                        if (wifiManager.getConnectionInfo().getSSID().contains(ssid_)) {
                             Log.d(TAG, "wifi.getExtraInfo().contains(ssid_) : true");
                             wifistate = WifiState.WAIT_CONNECT_FILM;
                         } else {
@@ -196,7 +199,8 @@ public class MyWifi extends Thread {
                     case WAIT_CONNECT_FILM:
                         wifi = manager.getActiveNetworkInfo(); // 와이파이에 연결된 상태
                         if (wifi != null) {
-                            if (wifi.getExtraInfo().contains(ssid_)) {
+//                            if (wifi.getExtraInfo().contains(ssid_)) {
+                            if (wifiManager.getConnectionInfo().getSSID().contains(ssid_)) {
                                 Log.d(TAG, "isConnected : true");
                                 Log.d(TAG, "getConnectionInfo : " + String.valueOf(wifiManager.getConnectionInfo()));
                                 progressListner.progressDialog(wifistate, "Connecting");
@@ -235,8 +239,10 @@ public class MyWifi extends Thread {
                         break;
                 }
                 sleep(delay_);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+            } catch (Exception e) {
+
             }
         }
     }
@@ -256,6 +262,7 @@ public class MyWifi extends Thread {
         apList = wifiManager.getScanResults();
         if (wifiManager.getScanResults() != null) {
             int size = apList.size();
+            Log.d(TAG, "SSID : " + ssid_);
             for (int i = 0; i < size; i++) {
                 scanResult = (ScanResult) apList.get(i);
                 Log.d(TAG, "scanResult.SSID : " + scanResult.SSID);

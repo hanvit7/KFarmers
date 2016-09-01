@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/lake3">
+
+
+    <Button
+        android:id="@+id/button"
+        style="@style/CustomButton9"
+        android:layout_alignParentTop="true"
+        android:text="Window 1" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/CustomButton9"
+        android:layout_below="@+id/button"
+        android:text="Window 2" />
+
+</LinearLayout>

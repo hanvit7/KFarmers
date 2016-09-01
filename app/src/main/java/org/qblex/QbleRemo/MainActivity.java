@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView.OnNavigationItemSelectedListener,
         FragSetting.SettingListner,
         FragButton1.ButtonSelectedListener1,
+        FragButton2.ButtonSelectedListener2,
+        FragButton3.ButtonSelectedListener3,
+        FragButton4.ButtonSelectedListener4,
         FragButton8.ButtonSelectedListener8,
         FragButton9.ButtonSelectedListener9 {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -79,6 +82,9 @@ public class MainActivity extends AppCompatActivity
 
     FragSetting fragSetting;
     FragButton1 fragButton1;
+    FragButton2 fragButton2;
+    FragButton3 fragButton3;
+    FragButton4 fragButton4;
     FragButton8 fragButton8;
     FragButton9 fragButton9;
 
@@ -370,7 +376,7 @@ public class MainActivity extends AppCompatActivity
                         public void progressDialog(MyWifi.WifiState wifiState, final String string) {
                             if (wifiState == MyWifi.WifiState.WAIT_CONNECT_FILM & string != null) {
                                 if (!socket.isConnected()) socketStart();
-                            } else if (wifiState == MyWifi.WifiState.CONNECT_SUCCESS) {
+                            } else if (wifiState == MyWifi.WifiState.CONNECT_SUCCESS || wifiState == MyWifi.WifiState.CONNECT_FAIL) {
                                 mProgressDialog.dismiss();
                             } else {
                                 handler.post(new Runnable() {
@@ -409,10 +415,32 @@ public class MainActivity extends AppCompatActivity
 //                            .addToBackStack(null)
                         .commit();
                 break;
+
             case 1:
                 fragButton1 = new FragButton1();
                 getFragmentManager().beginTransaction()
                         .replace(R.id.frame, fragButton1)
+//                            .addToBackStack(null)
+                        .commit();
+                break;
+            case 2:
+                fragButton2 = new FragButton2();
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.frame, fragButton2)
+//                            .addToBackStack(null)
+                        .commit();
+                break;
+            case 3:
+                fragButton3 = new FragButton3();
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.frame, fragButton3)
+//                            .addToBackStack(null)
+                        .commit();
+                break;
+            case 4:
+                fragButton4 = new FragButton4();
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.frame, fragButton4)
 //                            .addToBackStack(null)
                         .commit();
                 break;
@@ -500,6 +528,39 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void onButtonSelected2(int index) {
+        if (socket != null)//??
+            if (socket.isConnected()) {
+                if (pinFlag[index] == 1) socket.sendString("#pin=" + index + ",0");
+                else socket.sendString("#pin=" + index + ",1");
+            } else {
+                Toast.makeText(this, "Wifi is disconnect.", Toast.LENGTH_SHORT).show();
+            }
+    }
+
+    @Override
+    public void onButtonSelected3(int index) {
+        if (socket != null)//??
+            if (socket.isConnected()) {
+                if (pinFlag[index] == 1) socket.sendString("#pin=" + index + ",0");
+                else socket.sendString("#pin=" + index + ",1");
+            } else {
+                Toast.makeText(this, "Wifi is disconnect.", Toast.LENGTH_SHORT).show();
+            }
+    }
+
+    @Override
+    public void onButtonSelected4(int index) {
+        if (socket != null)//??
+            if (socket.isConnected()) {
+                if (pinFlag[index] == 1) socket.sendString("#pin=" + index + ",0");
+                else socket.sendString("#pin=" + index + ",1");
+            } else {
+                Toast.makeText(this, "Wifi is disconnect.", Toast.LENGTH_SHORT).show();
+            }
+    }
+
+    @Override
     public void onButtonSelected8(int index) {
         if (socket.isConnected()) {
             if (pinFlag[index] == 1) socket.sendString("#pin=" + index + ",0");
@@ -525,6 +586,15 @@ public class MainActivity extends AppCompatActivity
                 break;
             case 1:
                 fragButton1.updataButton(index, pinFlag[index]);
+                break;
+            case 2:
+                fragButton2.updataButton(index, pinFlag[index]);
+                break;
+            case 3:
+                fragButton3.updataButton(index, pinFlag[index]);
+                break;
+            case 4:
+                fragButton4.updataButton(index, pinFlag[index]);
                 break;
             case 8:
                 fragButton8.updataButton(index, pinFlag[index]);
@@ -584,15 +654,15 @@ public class MainActivity extends AppCompatActivity
 
                     case 3://Connect Fail
                         if (Integer.parseInt(msg) == socket.getAttemptConnect()) {//접속 시도 횟수
-//                            failProgressDialog.setMessage("Try to Connect : " + msg + "sec");
-//                            failProgressDialog.show();
-//                        } else {
+                            failProgressDialog.setMessage("Try to Connect : " + msg + "sec");
+                            failProgressDialog.show();
+                        } else {
                             socket.setRuntFlag(false);
                             if (aliveThread != null) aliveThread.setRuntFlag(false);
-//                            if (failProgressDialog != null) failProgressDialog.dismiss();
+                            if (failProgressDialog != null) failProgressDialog.dismiss();
 //                            failDialogStart();
-//                            failDialogInit();
-//                            failDialog.show();
+                            failDialogInit();
+                            failDialog.show();
                         }
                         break;
                 }
@@ -656,7 +726,7 @@ public class MainActivity extends AppCompatActivity
 //        AlertDialog.Builder builder;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Connect Fail");
-        builder.setMessage("Would you like to check the settings or WiFi?");
+        builder.setMessage("Would you like to check the settings?");
         builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -674,12 +744,12 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-        builder.setNeutralButton("WiFi", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Log.d(TAG, "setNeutralButton");
-            }
-        });
+//        builder.setNeutralButton("WiFi", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Log.d(TAG, "setNeutralButton");
+//            }
+//        });
 
         failDialog = builder.create();
     }
